@@ -6,9 +6,10 @@ class Program
     static async Task Main(string[] args)
     {
         IConfiguration config = new ConfigurationBuilder()
-            .SetBasePath(AppContext.BaseDirectory)
-            .AddJsonFile("appsettings.json", optional: false)
-            .Build();
+           .SetBasePath(AppContext.BaseDirectory)
+           .AddJsonFile("appsettings.json", optional: true)
+           .AddEnvironmentVariables()
+           .Build();
 
         string username = config["Naukri:Username"]!;
         string password = config["Naukri:Password"]!;
